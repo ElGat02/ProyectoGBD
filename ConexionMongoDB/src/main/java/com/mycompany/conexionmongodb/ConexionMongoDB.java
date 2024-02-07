@@ -4,6 +4,7 @@
  */
 package com.mycompany.conexionmongodb;
 
+import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import java.util.List;
 
@@ -22,5 +23,6 @@ public class ConexionMongoDB {
         } else {
             System.out.println("ERROR: Conexión no establecida");
         }
+        
     }
 }

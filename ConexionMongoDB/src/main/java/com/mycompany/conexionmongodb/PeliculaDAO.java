@@ -1,4 +1,6 @@
 package com.mycompany.conexionmongodb;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
@@ -13,8 +15,10 @@ import org.bson.types.ObjectId;
  */
 public class PeliculaDAO {
     
+    MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+    
     public void insertarPelicula(String nombre, List<String> generos, Date fechaEstreno, String resumen, List<String> premios, double recaudacion, List<String> actoresIDs) {
-        MongoDatabase db = MongoDBConexion.obtenerDB();
+        MongoDatabase db = mongoClient.getDatabase("GestionBase");
         MongoCollection<Document> coleccion = db.getCollection("peliculas");
 
         Document nuevaPelicula = new Document("nombre", nombre)

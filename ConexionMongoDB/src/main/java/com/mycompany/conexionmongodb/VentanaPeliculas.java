@@ -4,15 +4,26 @@
  */
 package com.mycompany.conexionmongodb;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.Mongo;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 /**
  *
  * @author David
  */
 public class VentanaPeliculas extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Ventana
      */
+    
+    List<String> listaGeneros = new ArrayList<>();
+    List<String> listaPremios  = new ArrayList<>();
+    List<String> listaActores  = new ArrayList<>();
     public VentanaPeliculas() {
         initComponents();
     }
@@ -86,6 +97,11 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2);
 
         jButton1.setText("Guardar Registro");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +137,30 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PeliculaDAO pelicula = new PeliculaDAO();
+        
+        listaGeneros.add("Ciencia Ficcion");
+        listaGeneros.add("Acción");
+        
+        listaPremios.add("Oscar Mejores Efectos Especiales");
+        
+        listaActores.add("1");
+        listaActores.add("2");
+        
+        String nom = txtNombrePel.getText();
+        Date fecha = jDateChooser.getDate();
+        String res = jTxtAreaResumen.getText();
+        String recaudacion = jTxtRecaudación.getText();
+        float recFloat = Float.valueOf(recaudacion);
+        
+        pelicula.insertarPelicula(nom, listaGeneros, fecha, res, listaPremios, recFloat, listaActores);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
