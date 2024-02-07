@@ -18,7 +18,7 @@ public class PremiosDAO {
     
     public List<Document> obtenerPremios() {
         MongoDatabase db = MongoDBConexion.obtenerDB();
-        MongoCollection<Document> coleccion = db.getCollection("premios");
+        MongoCollection<Document> coleccion = db.getCollection("Premios");
 
         List<Document> premios = new ArrayList<>();
         coleccion.find().iterator().forEachRemaining(premios::add);
