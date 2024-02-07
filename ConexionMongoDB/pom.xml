@@ -18,6 +18,12 @@
             <artifactId>mongo-java-driver</artifactId>
             <version>3.12.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>3.12.14</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
 </project>
