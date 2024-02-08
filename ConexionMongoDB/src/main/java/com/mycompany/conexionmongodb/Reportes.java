@@ -47,10 +47,6 @@ public class Reportes {
         System.out.println("----------------------------------------------------");
         System.out.println("-----------Películas con Mayor Recaudación----------");
         System.out.println("----------------------------------------------------");
-        
-        collection.aggregate(Arrays.asList(match))
-                .iterator()
-                .forEachRemaining(System.out::println);
 
         Bson sort = Aggregates.sort(Sorts.descending("revenue"));
         Bson limit = Aggregates.limit(10);
