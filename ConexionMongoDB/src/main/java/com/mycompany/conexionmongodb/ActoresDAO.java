@@ -18,12 +18,11 @@ public class ActoresDAO {
      MongoDatabase db = mongoClient.getDatabase("GestionBase");
      MongoCollection<Document> coleccion = db.getCollection("Actor");
     
-    public void insertarActor(String nombre, String pais, Date fechaNacimiento, String tipo, String genero) {
+    public void insertarActor(String nombre, String pais, Date fechaNacimiento, String genero) {
         
         Document actor = new Document("nombre", nombre)
                 .append("pais", pais)
                 .append("fechaNacimiento", fechaNacimiento)
-                .append("tipo", tipo) // principal, reparto o secundario
                 .append("genero", genero); // hombre, mujer
 
         coleccion.insertOne(actor);

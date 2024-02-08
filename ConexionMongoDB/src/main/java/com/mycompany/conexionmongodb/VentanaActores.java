@@ -36,8 +36,6 @@ public class VentanaActores extends javax.swing.JFrame {
         jTxtPais = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButtonAgregarActor = new javax.swing.JButton();
@@ -47,7 +45,7 @@ public class VentanaActores extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registro de Actores");
 
-        jPanel1.setLayout(new java.awt.GridLayout(5, 2));
+        jPanel1.setLayout(new java.awt.GridLayout(4, 2));
 
         jLabel2.setText("Nombre");
         jPanel1.add(jLabel2);
@@ -57,15 +55,9 @@ public class VentanaActores extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jPanel1.add(jTxtPais);
 
-        jLabel4.setText("Fecha");
+        jLabel4.setText("Fecha de Nacimiento");
         jPanel1.add(jLabel4);
         jPanel1.add(jDateChooser2);
-
-        jLabel5.setText("Tipo");
-        jPanel1.add(jLabel5);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal/Reparto", "Secundario" }));
-        jPanel1.add(jComboBox1);
 
         jLabel6.setText("Genero");
         jPanel1.add(jLabel6);
@@ -118,14 +110,12 @@ public class VentanaActores extends javax.swing.JFrame {
         String nom = jTxtNombre.getText();
         String pa = jTxtPais.getText();
         Date fecha = jDateChooser2.getDate();
-        
-        String tipo = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
-        System.out.println("Tipo: " + tipo);
         String sexo = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
         System.out.println("Sexo: " + sexo);
         
         
-        actores.insertarActor(nom, pa, fecha, tipo, sexo);
+        actores.insertarActor(nom, pa, fecha, sexo);
+        
     }//GEN-LAST:event_jButtonAgregarActorActionPerformed
 
     /**
@@ -165,14 +155,12 @@ public class VentanaActores extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgregarActor;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTxtNombre;

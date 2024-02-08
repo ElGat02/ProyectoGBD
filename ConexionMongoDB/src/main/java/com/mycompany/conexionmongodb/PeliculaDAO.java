@@ -17,7 +17,7 @@ public class PeliculaDAO {
     
     MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
     
-    public void insertarPelicula(String nombre, List<String> generos, Date fechaEstreno, String resumen, List<String> premios, double recaudacion, List<String> actoresIDs) {
+    public void insertarPelicula(String nombre, List<String> generos, Date fechaEstreno, String resumen, List<String> premios, double recaudacion, List<List> actoresIDs) {
         MongoDatabase db = mongoClient.getDatabase("GestionBase");
         MongoCollection<Document> coleccion = db.getCollection("peliculas");
 

@@ -23,7 +23,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     
     List<String> listaGeneros = new ArrayList<>();
     List<String> listaPremios  = new ArrayList<>();
-    List<String> listaActores  = new ArrayList<>();
+    List<List> listaActores  = new ArrayList<>();
     
     public VentanaPeliculas() {
         initComponents();
@@ -48,14 +48,20 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTxtAreaResumen = new javax.swing.JTextArea();
+        jTxtResumen = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTxtRecaudación = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jListPremios = new javax.swing.JList<>();
+        jComboBoxPremios = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jTxtNomAct = new javax.swing.JTextField();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButtonAgrePrem = new javax.swing.JButton();
+        jButtonAgreAct = new javax.swing.JButton();
+        jButtonAgreGen = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,7 +69,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel1.setText("Registro de Peliculas");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.setLayout(new java.awt.GridLayout(6, 2));
+        jPanel1.setLayout(new java.awt.GridLayout(7, 2));
 
         jLabel2.setText("Nombre:");
         jPanel1.add(jLabel2);
@@ -72,7 +78,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel3.setText("Género(s)");
         jPanel1.add(jLabel3);
 
-        jBox_generos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jBox_generos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comedia", "Drama", "Accion", "Ciencia Ficcion", "Documental", "Terror" }));
         jPanel1.add(jBox_generos);
 
         jLabel4.setText("Fecha de estreno");
@@ -81,12 +87,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
 
         jLabel5.setText("Resumen");
         jPanel1.add(jLabel5);
-
-        jTxtAreaResumen.setColumns(20);
-        jTxtAreaResumen.setRows(5);
-        jScrollPane1.setViewportView(jTxtAreaResumen);
-
-        jPanel1.add(jScrollPane1);
+        jPanel1.add(jTxtResumen);
 
         jLabel6.setText("Recaudación");
         jPanel1.add(jLabel6);
@@ -95,9 +96,21 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel7.setText("Premios");
         jPanel1.add(jLabel7);
 
-        jScrollPane2.setViewportView(jListPremios);
+        jComboBoxPremios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Premio Oscar", "Premio Cesar", "Premio Razzie", "Premio Globo de Oro" }));
+        jPanel1.add(jComboBoxPremios);
 
-        jPanel1.add(jScrollPane2);
+        jLabel8.setText("Actores");
+        jPanel1.add(jLabel8);
+
+        jPanel2.setLayout(new java.awt.GridLayout(2, 1));
+
+        jTxtNomAct.setText("Nombre");
+        jPanel2.add(jTxtNomAct);
+
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal/Reparto", "Secundario" }));
+        jPanel2.add(jComboBoxTipo);
+
+        jPanel1.add(jPanel2);
 
         jButton1.setText("Guardar Registro");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,24 +119,74 @@ public class VentanaPeliculas extends javax.swing.JFrame {
             }
         });
 
+        jButtonAgrePrem.setText("Agregar Premio");
+        jButtonAgrePrem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgrePremActionPerformed(evt);
+            }
+        });
+
+        jButtonAgreAct.setText("Agregar Actor");
+        jButtonAgreAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgreActActionPerformed(evt);
+            }
+        });
+
+        jButtonAgreGen.setText("Agregar Genero");
+        jButtonAgreGen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgreGenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAgreGen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAgrePrem, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAgreAct, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 7, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jButtonAgreGen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonAgrePrem)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAgreAct)
+                .addGap(13, 13, 13))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(49, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(301, 301, 301))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(269, 269, 269))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,34 +194,45 @@ public class VentanaPeliculas extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(7, 7, 7))
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PeliculaDAO pelicula = new PeliculaDAO();
-        
-        listaGeneros.add("Ciencia Ficcion");
-        listaGeneros.add("Acción");
-        
-        listaPremios.add("Oscar Mejores Efectos Especiales");
-        
-        listaActores.add("1");
-        listaActores.add("2");
+        PeliculaDAO pelicula = new PeliculaDAO();     
         
         String nom = txtNombrePel.getText();
         Date fecha = jDateChooser2.getDate();
-        String res = jTxtAreaResumen.getText();
+        String res = jTxtResumen.getText();
         String recaudacion = jTxtRecaudación.getText();
         float recFloat = Float.valueOf(recaudacion);
         
         pelicula.insertarPelicula(nom, listaGeneros, fecha, res, listaPremios, recFloat, listaActores);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonAgreGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgreGenActionPerformed
+        String generos = jBox_generos.getItemAt(jBox_generos.getSelectedIndex());
+        listaGeneros.add(generos);
+    }//GEN-LAST:event_jButtonAgreGenActionPerformed
+
+    private void jButtonAgrePremActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgrePremActionPerformed
+        String premios = jComboBoxPremios.getItemAt(jComboBoxPremios.getSelectedIndex());
+        listaPremios.add(premios);
+    }//GEN-LAST:event_jButtonAgrePremActionPerformed
+
+    private void jButtonAgreActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgreActActionPerformed
+        List<String> listInfoAct = new ArrayList<>();
+        listInfoAct.add(jTxtNomAct.getText());
+        listInfoAct.add(jComboBoxTipo.getItemAt(jComboBoxTipo.getSelectedIndex()));
+        listaActores.add(listInfoAct);
+    }//GEN-LAST:event_jButtonAgreActActionPerformed
     
     
     
@@ -203,6 +277,11 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jBox_generos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAgreAct;
+    private javax.swing.JButton jButtonAgreGen;
+    private javax.swing.JButton jButtonAgrePrem;
+    private javax.swing.JComboBox<String> jComboBoxPremios;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -212,12 +291,13 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JList<String> jListPremios;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTxtAreaResumen;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTxtNomAct;
     private javax.swing.JTextField jTxtRecaudación;
+    private javax.swing.JTextField jTxtResumen;
     private javax.swing.JTextField txtNombrePel;
     // End of variables declaration//GEN-END:variables
 }
