@@ -32,6 +32,8 @@ public class VentanaReportes extends javax.swing.JFrame {
         jButtonRecaudacion = new javax.swing.JButton();
         jButtonPelActor = new javax.swing.JButton();
         jButtonReporGen = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +72,7 @@ public class VentanaReportes extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButtonReporte1, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+            .addComponent(jButtonReporte1, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
             .addComponent(jButtonRecaudacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonPelActor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButtonReporGen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -88,18 +90,27 @@ public class VentanaReportes extends javax.swing.JFrame {
                 .addComponent(jButtonReporGen, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addGap(340, 340, 340)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(352, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(34, 34, 34))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,38 +119,28 @@ public class VentanaReportes extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonPelActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPelActorActionPerformed
-        VentanaReporActores ventRepAct = new VentanaReporActores();
-        ventRepAct.setVisible(true);
-        ventRepAct.setLocationRelativeTo(null);
-        ventRepAct.setVisible(false);
+       
     }//GEN-LAST:event_jButtonPelActorActionPerformed
 
     private void jButtonReporte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporte1ActionPerformed
-        VentanaReportePeriodoTiempo ventRepTiem = new VentanaReportePeriodoTiempo();
-        ventRepTiem.setVisible(true);
-        ventRepTiem.setLocationRelativeTo(null);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_jButtonReporte1ActionPerformed
 
     private void jButtonRecaudacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecaudacionActionPerformed
-        VentanaRecaudación ventRecau = new VentanaRecaudación();
-        ventRecau.setVisible(true);
-        ventRecau.setLocationRelativeTo(null);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_jButtonRecaudacionActionPerformed
 
     private void jButtonReporGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReporGenActionPerformed
-        VentanaReporGenero ventRepGen = new VentanaReporGenero();
-        ventRepGen.setVisible(true);
-        ventRepGen.setLocationRelativeTo(null);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButtonReporGenActionPerformed
 
     /**
@@ -183,6 +184,8 @@ public class VentanaReportes extends javax.swing.JFrame {
     private javax.swing.JButton jButtonReporGen;
     private javax.swing.JButton jButtonReporte1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
