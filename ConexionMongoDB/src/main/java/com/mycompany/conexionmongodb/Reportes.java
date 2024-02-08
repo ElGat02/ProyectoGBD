@@ -6,6 +6,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Aggregates;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
+import java.time.Instant;
 import org.bson.Document;
 import java.util.Arrays;
 import java.util.Date;
@@ -19,7 +20,7 @@ public class Reportes {
     public static void main(String[] args) {
         
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-        MongoDatabase database = mongoClient.getDatabase("gestionbase");
+        MongoDatabase database = mongoClient.getDatabase("GestionBase");
         MongoCollection<Document> collection = database.getCollection("peliculas");
         
            
@@ -28,12 +29,19 @@ public class Reportes {
         System.out.println("----------------------------------------------------");
         // Consulta Películas Estrenadas en un Periodo de Tiempo
         
+        Instant start = Instant.parse("2000-01-01T00:00:00Z");
+        Instant end = Instant.parse("2020-12-31T23:59:59Z");
+
         Bson match = Aggregates.match(
                 Filters.and(
-                        Filters.gte("releaseDate", new Date(2022-1900, 1, 1)), // Año, Mes (0-index), Día
-                        Filters.lte("releaseDate", new Date(2022-1900, 11, 31))
+                        Filters.gte("fechaEstreno", Date.from(start)),
+                        Filters.lte("fechaEstreno", Date.from(end))
                 )
         );
+
+        collection.aggregate(Arrays.asList(match))
+                .iterator()
+                .forEachRemaining(System.out::println);
         
         // Películas con Mayor Recaudación
         System.out.println("----------------------------------------------------");

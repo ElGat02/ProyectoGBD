@@ -24,6 +24,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     List<String> listaGeneros = new ArrayList<>();
     List<String> listaPremios  = new ArrayList<>();
     List<String> listaActores  = new ArrayList<>();
+    
     public VentanaPeliculas() {
         initComponents();
     }
