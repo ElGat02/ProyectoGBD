@@ -61,6 +61,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Registro de Peliculas");
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new java.awt.GridLayout(6, 2));
 
         jLabel2.setText("Nombre:");

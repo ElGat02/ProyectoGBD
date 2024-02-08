@@ -21,6 +21,7 @@ public class Reportes {
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
         MongoDatabase database = mongoClient.getDatabase("gestionbase");
         MongoCollection<Document> collection = database.getCollection("peliculas");
+        
            
         System.out.println("----------------------------------------------------");
         System.out.println("----Películas Estrenadas en un Periodo de Tiempo----");
