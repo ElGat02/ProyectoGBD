@@ -1,5 +1,7 @@
 package com.mycompany.conexionmongodb;
 
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
@@ -12,15 +14,12 @@ import java.util.List;
 
 public class ActoresDAO {
 
-    private MongoDatabase db;
-    private MongoCollection<Document> coleccion;
-
-    public ActoresDAO(MongoDatabase db) {
-        this.db = db;
-        this.coleccion = db.getCollection("actores");
-    }
-
+     MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+     MongoDatabase db = mongoClient.getDatabase("GestionBase");
+     MongoCollection<Document> coleccion = db.getCollection("Actor");
+    
     public void insertarActor(String nombre, String pais, Date fechaNacimiento, String tipo, String genero) {
+        
         Document actor = new Document("nombre", nombre)
                 .append("pais", pais)
                 .append("fechaNacimiento", fechaNacimiento)

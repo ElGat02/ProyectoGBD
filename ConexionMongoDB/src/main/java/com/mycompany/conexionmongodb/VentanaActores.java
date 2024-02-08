@@ -4,6 +4,8 @@
  */
 package com.mycompany.conexionmongodb;
 
+import java.util.Date;
+
 /**
  *
  * @author David
@@ -38,7 +40,7 @@ public class VentanaActores extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jButtonAgregarActor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +73,12 @@ public class VentanaActores extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hombre", "Mujer" }));
         jPanel1.add(jComboBox2);
 
-        jButton1.setText("Registrar Actor");
+        jButtonAgregarActor.setText("Registrar Actor");
+        jButtonAgregarActor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAgregarActorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +94,7 @@ public class VentanaActores extends javax.swing.JFrame {
                 .addGap(149, 149, 149))
             .addGroup(layout.createSequentialGroup()
                 .addGap(173, 173, 173)
-                .addComponent(jButton1)
+                .addComponent(jButtonAgregarActor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -98,12 +105,28 @@ public class VentanaActores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButtonAgregarActor)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAgregarActorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarActorActionPerformed
+        ActoresDAO actores = new ActoresDAO();
+        
+        String nom = jTxtNombre.getText();
+        String pa = jTxtPais.getText();
+        Date fecha = jDateChooser1.getDate();
+        
+        String tipo = jComboBox1.getItemAt(jComboBox1.getSelectedIndex());
+        System.out.println("Tipo: " + tipo);
+        String sexo = jComboBox2.getItemAt(jComboBox2.getSelectedIndex());
+        System.out.println("Sexo: " + sexo);
+        
+        
+        actores.insertarActor(nom, pa, fecha, tipo, sexo);
+    }//GEN-LAST:event_jButtonAgregarActorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,7 +164,7 @@ public class VentanaActores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAgregarActor;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private org.netbeans.modules.form.InvalidComponent jDateChooser1;
