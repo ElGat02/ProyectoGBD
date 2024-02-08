@@ -23,6 +23,10 @@ public class ConexionMongoDB {
         } else {
             System.out.println("ERROR: Conexión no establecida");
         }
+                
+        VentanaPrincipal ven = new VentanaPrincipal();
+        ven.setVisible(true);
+        ven.setLocationRelativeTo(null);
         
     }
 }
