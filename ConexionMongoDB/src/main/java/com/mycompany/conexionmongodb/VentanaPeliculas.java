@@ -62,6 +62,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jButtonAgrePrem = new javax.swing.JButton();
         jButtonAgreAct = new javax.swing.JButton();
         jButtonAgreGen = new javax.swing.JButton();
+        jButtonVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,6 +168,13 @@ public class VentanaPeliculas extends javax.swing.JFrame {
                 .addGap(13, 13, 13))
         );
 
+        jButtonVolver.setText("Volver");
+        jButtonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,18 +189,23 @@ public class VentanaPeliculas extends javax.swing.JFrame {
                         .addContainerGap(49, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(301, 301, 301))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(269, 269, 269))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(301, 301, 301))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(194, 194, 194)
+                                .addComponent(jButtonVolver))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(jButtonVolver))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -233,6 +246,13 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         listInfoAct.add(jComboBoxTipo.getItemAt(jComboBoxTipo.getSelectedIndex()));
         listaActores.add(listInfoAct);
     }//GEN-LAST:event_jButtonAgreActActionPerformed
+
+    private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
+        VentanaPrincipal vent = new VentanaPrincipal();
+        vent.setVisible(true);
+        vent.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonVolverActionPerformed
     
     
     
@@ -280,6 +300,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAgreAct;
     private javax.swing.JButton jButtonAgreGen;
     private javax.swing.JButton jButtonAgrePrem;
+    private javax.swing.JButton jButtonVolver;
     private javax.swing.JComboBox<String> jComboBoxPremios;
     private javax.swing.JComboBox<String> jComboBoxTipo;
     private com.toedter.calendar.JDateChooser jDateChooser1;

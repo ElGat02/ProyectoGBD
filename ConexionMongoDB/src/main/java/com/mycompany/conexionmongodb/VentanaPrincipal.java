@@ -119,7 +119,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         VentanaReportes ventRepor = new VentanaReportes();
         ventRepor.setVisible(true);
         ventRepor.setLocationRelativeTo(null);
-        this.setVisible(false);
     }//GEN-LAST:event_jButtonReportesActionPerformed
 
     /**

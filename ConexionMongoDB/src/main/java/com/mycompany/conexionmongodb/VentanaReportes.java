@@ -27,7 +27,7 @@ public class VentanaReportes extends javax.swing.JFrame {
 
     
     MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-    MongoDatabase database = mongoClient.getDatabase("gestionbase");
+    MongoDatabase database = mongoClient.getDatabase("GestionBase");
     MongoCollection<Document> collection = database.getCollection("peliculas");
     DefaultListModel<String> model = new DefaultListModel<>();
    
@@ -239,7 +239,10 @@ public class VentanaReportes extends javax.swing.JFrame {
 
     private void reporte3BtnActionPerformed(java.awt.event.ActionEvent evt) {                                            
        model.clear(); // Limpia el modelo antes de añadir nuevos elementos
-        Bson matchActor = Aggregates.match(Filters.in("actores", getActor()));
+        String actorBuscado = getActor(); // Obtiene el nombre del actor del campo de texto o de la UI
+
+        // Utiliza el operador $filter en una etapa $project para filtrar y mantener solo los actores que coincidan
+        Bson matchActor = Aggregates.match(Filters.elemMatch("actores", Filters.eq("0", actorBuscado)));
 
         collection.aggregate(Arrays.asList(matchActor))
                 .iterator()
