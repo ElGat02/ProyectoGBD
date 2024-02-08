@@ -150,7 +150,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         listaActores.add("2");
         
         String nom = txtNombrePel.getText();
-        Date fecha = jDateChooser.getDate();
+        Date fecha = jDateChooser2.getDate();
         String res = jTxtAreaResumen.getText();
         String recaudacion = jTxtRecaudación.getText();
         float recFloat = Float.valueOf(recaudacion);
