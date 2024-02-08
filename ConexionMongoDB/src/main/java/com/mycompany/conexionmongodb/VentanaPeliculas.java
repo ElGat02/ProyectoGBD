@@ -37,6 +37,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,7 +45,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jBox_generos = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jDateChooser = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTxtAreaResumen = new javax.swing.JTextArea();
@@ -74,7 +75,7 @@ public class VentanaPeliculas extends javax.swing.JFrame {
 
         jLabel4.setText("Fecha de estreno");
         jPanel1.add(jLabel4);
-        jPanel1.add(jDateChooser);
+        jPanel1.add(jDateChooser2);
 
         jLabel5.setText("Resumen");
         jPanel1.add(jLabel5);
@@ -200,7 +201,8 @@ public class VentanaPeliculas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jBox_generos;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
