@@ -20,7 +20,7 @@ public class Reportes {
     public static void main(String[] args) {
         
         MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-        MongoDatabase database = mongoClient.getDatabase("gestionbase");
+        MongoDatabase database = mongoClient.getDatabase("GestionBase");
         MongoCollection<Document> collection = database.getCollection("peliculas");
            
         System.out.println("----------------------------------------------------");
